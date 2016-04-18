@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import animationEndEvents from '../animation-end-events';
 
 /**
  * Component for animating its content when a value changes.
@@ -32,20 +33,6 @@ export default Ember.Component.extend({
   enabled: true,
 
   /**
-   * Vendor-specifc names for the `animationend` event for cross-browser
-   * support.
-   *
-   * @private
-   * @type {String[]}
-   */
-  _animationEndEvents: [
-    'animationend',
-    'MSAnimationEnd',
-    'oAnimationEnd',
-    'webkitAnimationEnd',
-  ],
-
-  /**
    * Listen to the animation end event, and remove the animation class when the
    * animation finishes.
    */
@@ -56,7 +43,7 @@ export default Ember.Component.extend({
 
     this.set('_removeAnimationClass', removeAnimationClass);
 
-    this.get('_animationEndEvents').forEach(event => {
+    animationEndEvents.forEach(event => {
       this.element.addEventListener(event, removeAnimationClass);
     });
   }),
@@ -67,7 +54,7 @@ export default Ember.Component.extend({
   removeAnimationEndListener: Ember.on('willDestroyElement', function () {
     const removeAnimationClass = this.get('_removeAnimationClass');
 
-    this.get('_animationEndEvents').forEach(event => {
+    animationEndEvents.forEach(event => {
       this.element.removeEventListener(event, removeAnimationClass);
     });
   }),
