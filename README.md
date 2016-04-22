@@ -77,6 +77,11 @@ animation is run.
 {{/animate-on-interval}}
 ```
 
+See the demo app in `tests/dummy/app` for en example of how to achieve
+the following effect:
+
+![Example result of using `animate-on-interval`](animations/animate-on-interval.gif)
+
 The public interface of the component is given in the table below.
 
 | Property name    | Type    | Default | Description                                                                |
