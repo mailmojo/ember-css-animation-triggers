@@ -100,7 +100,7 @@ The public interface of the component is given in the table below.
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:testall` to test the addon against multiple Ember versions)
+* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
